@@ -5,7 +5,7 @@ namespace App\Controller;
 abstract class Controller
 {
 
-    protected function render($view, $model = null)
+    protected static function render($view, $model = null)
     {
 
         $arquivo = VIEWS . $view . ".php";
