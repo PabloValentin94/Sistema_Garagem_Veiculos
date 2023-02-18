@@ -2,24 +2,24 @@
 
 namespace App\Model;
 
-use App\DAO\MarcaDAO;
+use App\DAO\CombustivelDAO;
 
-class MarcaModel extends Model
+class CombustivelModel extends Model
 {
 
-    public $id, $nome;
+    public $id, $descricao;
 
     public function Save()
     {
 
-        $dao = new MarcaDAO();
+        $dao = new CombustivelDAO();
 
         if(empty($this->id))
         {
 
             $dao->Insert($this);
 
-            header("Location: /marca/cadastro");
+            header("Location: /combustivel/cadastro");
 
         }
 
@@ -28,7 +28,7 @@ class MarcaModel extends Model
 
             $dao->Update($this);
 
-            header("Location: /marca/cadastro");
+            header("Location: /combustivel/cadastro");
 
         }
 
@@ -37,18 +37,18 @@ class MarcaModel extends Model
     public function Erase(int $id)
     {
 
-        $dao = new MarcaDAO();
+        $dao = new CombustivelDAO();
 
         $dao->Delete($id);
 
-        header("Location: /marca/cadastro");
+        header("Location: /combustivel/cadastro");
 
     }
 
     public function GetAllRows()
     {
 
-        $dao = new MarcaDAO();
+        $dao = new CombustivelDAO();
 
         $this->rows = $dao->Select();
 
@@ -57,7 +57,7 @@ class MarcaModel extends Model
     public function GetByID($id)
     {
 
-        $dao = new MarcaDAO();
+        $dao = new CombustivelDAO();
 
         $registro = $dao->SelectByID($id);
 
@@ -71,7 +71,7 @@ class MarcaModel extends Model
         else
         {
 
-            return new MarcaModel();
+            return new CombustivelModel();
 
         }
 

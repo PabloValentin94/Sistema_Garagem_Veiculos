@@ -2,24 +2,24 @@
 
 namespace App\Model;
 
-use App\DAO\MarcaDAO;
+use App\DAO\TipoDAO;
 
-class MarcaModel extends Model
+class TipoModel extends Model
 {
 
-    public $id, $nome;
+    public $id, $descricao;
 
     public function Save()
     {
 
-        $dao = new MarcaDAO();
+        $dao = new TipoDAO();
 
         if(empty($this->id))
         {
 
             $dao->Insert($this);
 
-            header("Location: /marca/cadastro");
+            header("Location: /tipo/cadastro");
 
         }
 
@@ -28,7 +28,7 @@ class MarcaModel extends Model
 
             $dao->Update($this);
 
-            header("Location: /marca/cadastro");
+            header("Location: /tipo/cadastro");
 
         }
 
@@ -37,18 +37,18 @@ class MarcaModel extends Model
     public function Erase(int $id)
     {
 
-        $dao = new MarcaDAO();
+        $dao = new TipoDAO();
 
         $dao->Delete($id);
 
-        header("Location: /marca/cadastro");
+        header("Location: /tipo/cadastro");
 
     }
 
     public function GetAllRows()
     {
 
-        $dao = new MarcaDAO();
+        $dao = new TipoDAO();
 
         $this->rows = $dao->Select();
 
@@ -57,7 +57,7 @@ class MarcaModel extends Model
     public function GetByID($id)
     {
 
-        $dao = new MarcaDAO();
+        $dao = new TipoDAO();
 
         $registro = $dao->SelectByID($id);
 
@@ -71,7 +71,7 @@ class MarcaModel extends Model
         else
         {
 
-            return new MarcaModel();
+            return new TipoModel();
 
         }
 

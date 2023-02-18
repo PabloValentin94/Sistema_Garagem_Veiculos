@@ -10,9 +10,9 @@
 
         <link rel="shortcut icon" href="<?= FAVICON ?>">
 
-        <link rel="stylesheet" type="text/css" href="/View/Modules/Marca/CSS/Styles.css">
+        <link rel="stylesheet" type="text/css" href="/View/Modules/Combustivel/CSS/Styles.css">
 
-        <title> Cadastro de Marcas </title>
+        <title> Cadastro de Combustíveis </title>
 
     </head>
 
@@ -22,14 +22,14 @@
 
             <div id="container">
 
-                <legend style="color: #FFFFFF; font-weight: bolder"> Cadastro de Marcas </legend>
+                <legend style="color: #FFFFFF; font-weight: bolder"> Cadastro de Combustíveis </legend>
 
-                <form method="post" action="/marca/cadastro/salvar" id="form">
+                <form method="post" action="/combustivel/cadastro/salvar" id="form">
 
                     <input type="hidden" name="id" value="<?= $model->id ?>">
 
-                    <label for="nome"> Nome: </label>
-                    <input type="text" name="nome" value="<?= $model->nome ?>" required>
+                    <label for="descricao"> Descrição: </label>
+                    <input type="text" name="descricao" value="<?= $model->descricao ?>" required>
 
                     <button type="submit"> SALVAR </button>
 

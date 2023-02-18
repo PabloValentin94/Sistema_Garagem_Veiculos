@@ -16,7 +16,7 @@ abstract class DAO
 
         $user = $_ENV["database"]["user"];
 
-        $password = $_ENV["database"]["passowrd"];
+        $password = $_ENV["database"]["password"];
 
         $this->conexao = new PDO($dsn, $user, $password);
 
