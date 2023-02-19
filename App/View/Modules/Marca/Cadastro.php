@@ -10,7 +10,7 @@
 
         <link rel="shortcut icon" href="<?= FAVICON ?>">
 
-        <link rel="stylesheet" type="text/css" href="/View/Modules/Marca/CSS/Styles.css">
+        <link rel="stylesheet" type="text/css" href="/View/Modules/Marca/CSS/Cadastro.css">
 
         <title> Cadastro de Marcas </title>
 

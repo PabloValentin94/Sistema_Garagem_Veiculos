@@ -1,0 +1,78 @@
+* {
+
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+body {
+
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url("/View/Modules/Combustivel/Images/Wallpaper.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+
+fieldset {
+
+    height: 50%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+#container {
+
+    height: 90%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #808080;
+
+}
+
+#form {
+
+    height: 80%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+
+}
+
+form input {
+
+    width: 40%;
+    margin-top: 10px;
+    text-align: center;
+
+}
+
+form button {
+
+    margin-top: 20px;
+    padding: 5px;
+    background-color: #008000;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-weight: bold;
+    cursor: pointer;
+
+}

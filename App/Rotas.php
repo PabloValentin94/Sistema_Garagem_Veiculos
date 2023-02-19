@@ -5,6 +5,7 @@
 use App\Controller\MarcaController;
 use App\Controller\TipoController;
 use App\Controller\CombustivelController;
+use App\Controller\FabricanteController;
 
 $url = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
@@ -14,7 +15,7 @@ switch($url)
     // Tela inicial:
 
     case "/":
-        echo "Início";
+        include(BASEDIR . "App/View/Home/Home.php");
     break;
 
     // Marcas:
@@ -71,10 +72,28 @@ switch($url)
         CombustivelController::Table();
     break;
 
+    // Fabricantes:
+
+    case "/fabricante/cadastro":
+        FabricanteController::Index();
+    break;
+
+    case "/fabricante/cadastro/salvar":
+        FabricanteController::Register();
+    break;
+
+    case "/fabricante/deletar":
+        FabricanteController::Remove();
+    break;
+
+    case "/fabricante/listagem":
+        FabricanteController::Table();
+    break;
+
     // Exibição padrão:
 
     default:
-        echo "Erro 404!";
+        include(BASEDIR . "App/View/Error/Error.php");
 
 }
 

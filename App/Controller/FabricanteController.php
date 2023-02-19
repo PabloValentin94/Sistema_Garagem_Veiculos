@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Model\FabricanteModel;
 
+use App\Model\MarcaModel;
+
 class FabricanteController extends Controller
 {
 
@@ -12,6 +14,10 @@ class FabricanteController extends Controller
 
         $model = new FabricanteModel();
 
+        $marca = new MarcaModel();
+
+        $marca->GetAllRows();
+
         if(isset($_GET["id"]))
         {
 
@@ -19,7 +25,17 @@ class FabricanteController extends Controller
 
         }
 
-        parent::render("Fabricante/Cadastro", $model);
+        $dados = [
+
+            $model,
+
+            $marca->rows
+
+        ];
+
+        //include "View/Modules/Fabricante/Cadastro.php";
+
+        parent::render("Fabricante/Cadastro", $dados);
 
     }
 
@@ -48,7 +64,23 @@ class FabricanteController extends Controller
     public static function Table()
     {
 
+        $model = new FabricanteModel();
 
+        $marca = new MarcaModel();
+
+        $model->GetAllRows();
+
+        $marca->GetAllRows();
+
+        $dados = [
+
+            $model->rows,
+
+            $marca->rows
+
+        ];
+
+        parent::render("Fabricante/Listagem", $dados);
 
     }
 

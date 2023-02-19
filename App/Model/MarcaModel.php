@@ -19,7 +19,7 @@ class MarcaModel extends Model
 
             $dao->Insert($this);
 
-            header("Location: /marca/cadastro");
+            header("Location: /");
 
         }
 
@@ -28,7 +28,7 @@ class MarcaModel extends Model
 
             $dao->Update($this);
 
-            header("Location: /marca/cadastro");
+            header("Location: /");
 
         }
 
@@ -41,7 +41,7 @@ class MarcaModel extends Model
 
         $dao->Delete($id);
 
-        header("Location: /marca/cadastro");
+        header("Location: /");
 
     }
 

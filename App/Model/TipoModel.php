@@ -19,7 +19,7 @@ class TipoModel extends Model
 
             $dao->Insert($this);
 
-            header("Location: /tipo/cadastro");
+            header("Location: /");
 
         }
 
@@ -28,7 +28,7 @@ class TipoModel extends Model
 
             $dao->Update($this);
 
-            header("Location: /tipo/cadastro");
+            header("Location: /");
 
         }
 
@@ -41,7 +41,7 @@ class TipoModel extends Model
 
         $dao->Delete($id);
 
-        header("Location: /tipo/cadastro");
+        header("Location: /");
 
     }
 

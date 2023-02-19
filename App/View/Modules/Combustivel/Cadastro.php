@@ -10,7 +10,7 @@
 
         <link rel="shortcut icon" href="<?= FAVICON ?>">
 
-        <link rel="stylesheet" type="text/css" href="/View/Modules/Combustivel/CSS/Styles.css">
+        <link rel="stylesheet" type="text/css" href="/View/Modules/Combustivel/CSS/Cadastro.css">
 
         <title> Cadastro de Combustíveis </title>
 

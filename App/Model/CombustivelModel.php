@@ -19,7 +19,7 @@ class CombustivelModel extends Model
 
             $dao->Insert($this);
 
-            header("Location: /combustivel/cadastro");
+            header("Location: /");
 
         }
 
@@ -28,7 +28,7 @@ class CombustivelModel extends Model
 
             $dao->Update($this);
 
-            header("Location: /combustivel/cadastro");
+            header("Location: /");
 
         }
 
@@ -41,7 +41,7 @@ class CombustivelModel extends Model
 
         $dao->Delete($id);
 
-        header("Location: /combustivel/cadastro");
+        header("Location: /");
 
     }
 
