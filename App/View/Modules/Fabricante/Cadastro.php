@@ -38,7 +38,15 @@
 
                         <?php foreach($model[1] as $marca): ?>
 
-                            <option value="<?= $marca->id ?>"> <?= $marca->nome ?> </option>
+                            <?php if(isset($_GET["id"]) && $marca->id == $model[0]->fk_marca): ?>
+
+                                <option value="<?= $marca->id ?>" selected> <?= $marca->nome ?> </option>
+
+                            <?php else: ?>
+
+                                <option value="<?= $marca->id ?>"> <?= $marca->nome ?> </option>
+
+                            <?php endif ?>
 
                         <?php endforeach ?>
 

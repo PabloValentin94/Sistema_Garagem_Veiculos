@@ -44,6 +44,8 @@ class FabricanteController extends Controller
 
         $model = new FabricanteModel();
 
+        $model->id = $_POST["id"];
+
         $model->descricao = $_POST["descricao"];
 
         $model->fk_marca = $_POST["marca"];

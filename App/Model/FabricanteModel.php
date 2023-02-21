@@ -28,7 +28,7 @@ class FabricanteModel extends Model
 
             $dao->Update($this);
 
-            header("Location: /");
+            header("Location: /fabricante/listagem");
 
         }
 
@@ -41,7 +41,7 @@ class FabricanteModel extends Model
 
         $dao->Delete($id);
 
-        header("Location: /");
+        header("Location: /fabricante/listagem");
 
     }
 

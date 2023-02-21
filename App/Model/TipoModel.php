@@ -28,7 +28,7 @@ class TipoModel extends Model
 
             $dao->Update($this);
 
-            header("Location: /");
+            header("Location: /tipo/listagem");
 
         }
 
@@ -41,7 +41,7 @@ class TipoModel extends Model
 
         $dao->Delete($id);
 
-        header("Location: /");
+        header("Location: /tipo/listagem");
 
     }
 

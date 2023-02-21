@@ -28,7 +28,7 @@ class CombustivelModel extends Model
 
             $dao->Update($this);
 
-            header("Location: /");
+            header("Location: /combustivel/listagem");
 
         }
 
@@ -41,7 +41,7 @@ class CombustivelModel extends Model
 
         $dao->Delete($id);
 
-        header("Location: /");
+        header("Location: /combustivel/listagem");
 
     }
 
