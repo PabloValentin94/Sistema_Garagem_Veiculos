@@ -9,10 +9,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="shortcut icon" href="<?= FAVICON ?>">
-
-        <link rel="stylesheet" type="text/css" href="/View/Modules/Veiculo/CSS/Cadastro.css">
-
-        <title> Cadastro de Veículos </title>
+        
+        <link rel="stylesheet" type="text/css" href="/View/SignUp/CSS/Styles.css">
+        
+        <title> Tela de Cadastro de Usuários </title>
 
     </head>
 

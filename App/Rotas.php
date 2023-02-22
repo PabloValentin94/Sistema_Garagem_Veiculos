@@ -1,11 +1,20 @@
 <?php
 
-// Namespaces:
+// Namespaces - Módulos:
 
 use App\Controller\MarcaController;
 use App\Controller\TipoController;
 use App\Controller\CombustivelController;
 use App\Controller\FabricanteController;
+use App\Controller\VeiculoController;
+
+// Namespaces - Cadastro de Usuários:
+
+use App\Controller\SignUpController;
+
+// Namespaces - Login de Usuários:
+
+use App\Controller\SignInController;
 
 $url = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
@@ -15,6 +24,10 @@ switch($url)
     // Tela inicial:
 
     case "/":
+        /*if(SID != "") // SID -> variável superglobal que contém o valor do ID da sessão atual, caso exista.
+            include(BASEDIR . "App/View/Home/Home.php");
+        else
+            include(BASEDIR. "App/View/SignUp/SignUp.php");*/
         include(BASEDIR . "App/View/Home/Home.php");
     break;
 
@@ -88,6 +101,24 @@ switch($url)
 
     case "/fabricante/listagem":
         FabricanteController::Table();
+    break;
+
+    // Veículos:
+
+    case "/veiculo/cadastro":
+        VeiculoController::Index();
+    break;
+
+    case "/veiculo/cadastro/salvar":
+        VeiculoController::Register();
+    break;
+
+    case "/veiculo/deletar":
+        VeiculoController::Remove();
+    break;
+
+    case "/veiculo/listagem":
+        VeiculoController::Table();
     break;
 
     // Exibição padrão:

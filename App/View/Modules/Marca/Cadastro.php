@@ -35,6 +35,14 @@
 
                 </form>
 
+                <div id="others">
+
+                    <button id="btn_voltar"> <a href="/"> VOLTAR </a> </button>
+
+                    <button id="btn_listagem"> <a href="/marca/listagem"> LISTAGEM </a> </button>
+
+                </div>
+
             </div>
 
         </fieldset>

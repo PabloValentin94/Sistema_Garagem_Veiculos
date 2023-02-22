@@ -46,7 +46,7 @@ fieldset {
 
 #form {
 
-    height: 80%;
+    height: 70%;
     width: 95%;
     display: flex;
     flex-direction: column;
@@ -74,5 +74,45 @@ form button {
     color: #FFFFFF;
     font-weight: bold;
     cursor: pointer;
+
+}
+
+#others {
+
+    height: 10%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+#others button {
+
+    padding: 5px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+#others button a {
+
+    text-decoration: none;
+    color: #FFFFFF;
+
+}
+
+#btn_voltar {
+
+    background-color: #FF0000;
+
+}
+
+#btn_listagem {
+
+    background-color: #FFA500;
 
 }

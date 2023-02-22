@@ -26,7 +26,7 @@
 
                     <th> Descrição </th>
 
-                    <th> Afiliação </th>
+                    <th> Afiliação (Marca) </th>
 
                     <th> Botão - Editar </th>
 
