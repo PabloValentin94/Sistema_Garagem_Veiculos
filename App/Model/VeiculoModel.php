@@ -25,16 +25,12 @@ class VeiculoModel extends Model
 
             $dao->Insert($this);
 
-            header("Location: /veiculo/cadastro");
-
         }
 
         else
         {
 
             $dao->Update($this);
-
-            header("Location: /");
 
         }
 
@@ -46,8 +42,6 @@ class VeiculoModel extends Model
         $dao = new VeiculoDAO();
 
         $dao->Delete($id);
-
-        header("Location: /");
 
     }
 
@@ -80,6 +74,17 @@ class VeiculoModel extends Model
             return new VeiculoModel();
 
         }
+
+    }
+
+    public function GetMaxID()
+    {
+
+        $dao = new VeiculoDAO();
+
+        $id_maior = $dao->SelectMaxID();
+
+        return $id_maior[0]->max;
 
     }
 

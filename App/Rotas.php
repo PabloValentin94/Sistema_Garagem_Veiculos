@@ -113,6 +113,10 @@ switch($url)
         VeiculoController::Register();
     break;
 
+    case "/veiculo/observacoes":
+        VeiculoController::Observations();
+    break;
+
     case "/veiculo/deletar":
         VeiculoController::Remove();
     break;

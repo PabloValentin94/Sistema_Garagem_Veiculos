@@ -34,11 +34,11 @@
                     <label for="marca"> Marca: </label>
                     <Select name="marca" required>
 
-                        <option value="nenhum"> Selecione </option>
+                        <option value="<?= NULL ?>"> Selecione </option>
 
                         <?php foreach($model[1] as $marca): ?>
 
-                            <?php if(isset($_GET["id"]) && $marca->id == $model[0]->fk_marca): ?>
+                            <?php if(isset($_GET["id"]) && $model[0]->fk_marca != NULL  && $marca->id == $model[0]->fk_marca): ?>
 
                                 <option value="<?= $marca->id ?>" selected> <?= $marca->nome ?> </option>
 

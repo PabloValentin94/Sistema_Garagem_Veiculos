@@ -50,7 +50,7 @@ class VeiculoController extends Controller
 
         ];
 
-        /*var_dump($dados);
+        /*var_dump($dados[0]);
 
         exit();*/
 
@@ -63,125 +63,298 @@ class VeiculoController extends Controller
 
         $model = new VeiculoModel();
 
-        $model->id = $_POST["id"];
-
-        $model->numero_chassi = $_POST["numero_chassi"];
-
-        $model->modelo = $_POST["modelo"];
-
-        $model->ano = (int) $_POST["ano"];
-
-        $model->cor = $_POST["cor"];
-
-        $model->quilometagem = (double) $_POST["quilometragem"];
-
-        if(isset($_POST["revisao"]))
+        if(isset($_POST["id_veiculo"]))
         {
 
-            $model->revisao = 1;
+            $model->id = $_POST["id"];
+
+            $model->numero_chassi = $_POST["numero_chassi"];
+
+            $model->modelo = $_POST["modelo"];
+
+            $model->ano = (int) $_POST["ano"];
+
+            $model->cor = $_POST["cor"];
+
+            $model->quilometagem = (double) $_POST["quilometragem"];
+
+            $model->revisao = $_POST["revisao"];
+
+            $model->sinistro = $_POST["sinistro"];
+
+            $model->roubo_furto = $_POST["roubo_furto"];
+
+            $model->aluguel = $_POST["aluguel"];
+
+            $model->venda = $_POST["venda"];
+
+            $model->particular = $_POST["particular"];
+
+            $model->observacoes = trim($_POST["observacoes"]);
+
+            if($_POST["marca"] == NULL)
+            {
+
+                $model->fk_marca = NULL;
+
+            }
+
+            else
+            {
+
+                $model->fk_marca = (int) $_POST["marca"];
+
+            }
+
+            if($_POST["tipo"] == NULL)
+            {
+
+                $model->fk_tipo = NULL;
+
+            }
+
+            else
+            {
+
+                $model->fk_tipo = $_POST["tipo"];
+                
+            }
+
+            if($_POST["combustivel"] == NULL)
+            {
+
+                $model->fk_combustivel = NULL;
+
+            }
+
+            else
+            {
+
+                $model->fk_combustivel = (int) $_POST["combustivel"];
+                
+            }
+
+            if($_POST["fabricante"] == NULL)
+            {
+
+                $model->fk_fabricante = NULL;
+
+            }
+
+            else
+            {
+
+                $model->fk_fabricante = (int) $_POST["fabricante"];
+                
+            }
+
+            $model->Save();
+
+            if(empty($_POST["id"]))
+            {
+
+                header("Location: /");
+
+            }
+
+            else
+            {
+
+                header("Location: /");
+
+            }
 
         }
 
         else
         {
 
-            $model->revisao = 0;
+            $model->id = $_POST["id"];
 
-        }
+            $model->numero_chassi = $_POST["numero_chassi"];
 
-        if(isset($_POST["sinistro"]))
-        {
+            $model->modelo = $_POST["modelo"];
 
-            $model->sinistro = 1;
+            $model->ano = (int) $_POST["ano"];
 
-        }
+            $model->cor = $_POST["cor"];
 
-        else
-        {
+            $model->quilometagem = (double) $_POST["quilometragem"];
 
-            $model->sinistro = 0;
+            if(isset($_POST["revisao"]))
+            {
 
-        }
+                $model->revisao = 1;
 
-        if(isset($_POST["roubo_furto"]))
-        {
+            }
 
-            $model->roubo_furto = 1;
+            else
+            {
 
-        }
+                $model->revisao = 0;
 
-        else
-        {
+            }
 
-            $model->roubo_furto = 0;
+            if(isset($_POST["sinistro"]))
+            {
 
-        }
+                $model->sinistro = 1;
 
-        if(isset($_POST["aluguel"]))
-        {
+            }
 
-            $model->aluguel = 1;
+            else
+            {
 
-        }
+                $model->sinistro = 0;
 
-        else
-        {
+            }
 
-            $model->aluguel = 0;
+            if(isset($_POST["roubo_furto"]))
+            {
 
-        }
+                $model->roubo_furto = 1;
 
-        if(isset($_POST["venda"]))
-        {
+            }
 
-            $model->venda = 1;
+            else
+            {
 
-        }
+                $model->roubo_furto = 0;
 
-        else
-        {
+            }
 
-            $model->venda = 0;
+            if(isset($_POST["aluguel"]))
+            {
 
-        }
+                $model->aluguel = 1;
 
-        if(isset($_POST["particular"]))
-        {
+            }
 
-            $model->particular = 1;
+            else
+            {
 
-        }
+                $model->aluguel = 0;
 
-        else
-        {
+            }
 
-            $model->particular = 0;
+            if(isset($_POST["venda"]))
+            {
 
-        }
+                $model->venda = 1;
 
-        if(empty($_POST["observacoes"]))
-        {
+            }
 
-            $model->observacoes = NULL;
+            else
+            {
 
-        }
+                $model->venda = 0;
 
-        else
-        {
+            }
+
+            if(isset($_POST["particular"]))
+            {
+
+                $model->particular = 1;
+
+            }
+
+            else
+            {
+
+                $model->particular = 0;
+
+            }
 
             $model->observacoes = $_POST["observacoes"];
 
+            if($_POST["marca"] == NULL)
+            {
+
+                $model->fk_marca = NULL;
+
+            }
+
+            else
+            {
+
+                $model->fk_marca = (int) $_POST["marca"];
+
+            }
+
+            if($_POST["tipo"] == NULL)
+            {
+
+                $model->fk_tipo = NULL;
+
+            }
+
+            else
+            {
+
+                $model->fk_tipo = $_POST["tipo"];
+                
+            }
+
+            if($_POST["combustivel"] == NULL)
+            {
+
+                $model->fk_combustivel = NULL;
+
+            }
+
+            else
+            {
+
+                $model->fk_combustivel = (int) $_POST["combustivel"];
+                
+            }
+
+            if($_POST["fabricante"] == NULL)
+            {
+
+                $model->fk_fabricante = NULL;
+
+            }
+
+            else
+            {
+
+                $model->fk_fabricante = (int) $_POST["fabricante"];
+                
+            }
+
+            $model->Save();
+
+            if(empty($_POST["id"]))
+            {
+
+                $id_veiculo = $model->GetMaxID();
+
+                header("Location: /veiculo/observacoes?id_veiculo=$id_veiculo");
+
+            }
+
+            else
+            {
+
+                $id_veiculo = (int) $_POST["id"];
+
+                header("Location: /veiculo/observacoes?id_veiculo=$id_veiculo");
+
+            }
+
         }
 
-        $model->fk_marca = $_POST["marca"];
+    }
 
-        $model->fk_tipo = $_POST["tipo"];
+    public static function Observations()
+    {
 
-        $model->fk_combustivel = $_POST["combustivel"];
+        $model = new VeiculoModel();
 
-        $model->fk_fabricante = $_POST["fabricante"];
+        $model = $model->GetByID((int) $_GET["id_veiculo"]);
 
-        $model->Save();
+        parent::render("Veiculo/Observacoes", $model);
 
     }
 

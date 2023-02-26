@@ -20,3 +20,98 @@ body {
     background-repeat: no-repeat;
 
 }
+
+fieldset {
+
+    height: 70%;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#container {
+
+    height: 90%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #808080;
+
+}
+
+#form {
+
+    height: 70%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+
+}
+
+form textarea {
+
+    width: 40%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+form button {
+
+    margin-top: 10px;
+    padding: 5px;
+    background-color: #008000;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+#others {
+
+    height: 10%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+#others button {
+
+    padding: 5px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+#others button a {
+
+    text-decoration: none;
+    color: #FFFFFF;
+
+}
+
+#btn_voltar {
+
+    background-color: #FF0000;
+
+}
+
+/*#btn_listagem {
+
+    background-color: #FFA500;
+
+}*/
