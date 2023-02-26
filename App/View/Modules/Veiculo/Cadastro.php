@@ -18,7 +18,234 @@
 
     <body>
 
+        <fieldset>
 
+            <div id="container">
+
+                <legend style="color: #FFFFFF; font-weight: bolder"> Cadastro de Veículos </legend>
+
+                <form method="post" action="/veiculo/cadastro/salvar" id="form">
+
+                    <input type="hidden" name="id" value="<?= $model[0]->id ?>">
+
+                    <div class="line-text">
+
+                        <div class="field-text">
+
+                            <label for="numero_chassi"> Número do chassi: </label>
+                            <input type="text" name="numero_chassi" value="<?= $model[0]->numero_chassi ?>" maxlength="17">
+
+                        </div>
+
+                        <div class="field-text">
+
+                            <label for="marca"> Marca: </label>
+                            <select name="marca">
+
+                                <option value="nenhum"> Selecione </option>
+
+                                <?php foreach($model[1] as $marca): ?>
+
+                                    <?php if(isset($_GET["id"]) && $marca->id == $model[0]->fk_marca): ?>
+
+                                        <option value="<?= $marca->id ?>" selected> <?= $marca->nome ?> </option>
+
+                                    <?php else: ?>
+
+                                        <option value="<?= $marca->id ?>"> <?= $marca->nome ?> </option>
+
+                                    <?php endif ?>
+
+                                <?php endforeach ?>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <div class="line-text">
+
+                        <div class="field-text">
+
+                            <label for="modelo"> Modelo: </label>
+                            <input type="text" name="modelo" value="<?= $model[0]->modelo ?>">
+
+                        </div>
+
+                        <div class="field-text">
+
+                            <label for="cor"> Cor: </label>
+                            <input type="text" name="cor" value="<?= $model[0]->cor ?>">
+
+                        </div>
+
+                    </div>
+
+                    <div class="line-text">
+
+                        <div class="field-text">
+
+                            <label for="ano"> Ano: </label>
+                            <input type="number" name="ano" value="<?= $model[0]->ano ?>">
+
+                        </div>
+
+                        <div class="field-text">
+
+                            <label for="quilometragem"> Quilometragem: </label>
+                            <input type="number" name="quilometragem" value="<?= $model[0]->quilometragem ?>">
+
+                        </div>
+
+                    </div>
+
+                    <div class="line-text">
+
+                        <div class="field-text">
+
+                            <label for="tipo"> Tipo: </label>
+                            <select name="tipo">
+
+                                <option value="nenhum"> Selecione </option>
+
+                                <?php foreach($model[2] as $tipo): ?>
+
+                                    <?php if(isset($_GET["id"]) && $tipo->id == $model[0]->fk_tipo): ?>
+
+                                        <option value="<?= $tipo->id ?>" selected> <?= $tipo->nome ?> </option>
+
+                                    <?php else: ?>
+
+                                        <option value="<?= $tipo->id ?>"> <?= $tipo->descricao ?> </option>
+
+                                    <?php endif ?>
+
+                                <?php endforeach ?>
+
+                            </select>
+
+                        </div>
+
+                        <div class="field-text">
+
+                            <label for="combustivel"> Combustível: </label>
+                            <select name="combustivel">
+
+                                <option value="nenhum"> Selecione </option>
+
+                                <?php foreach($model[3] as $combustivel): ?>
+
+                                    <?php if(isset($_GET["id"]) && $combustivel->id == $model[0]->fk_combustivel): ?>
+
+                                        <option value="<?= $combustivel->id ?>" selected> <?= $combustivel->nome ?> </option>
+
+                                    <?php else: ?>
+
+                                        <option value="<?= $combustivel->id ?>"> <?= $combustivel->descricao ?> </option>
+
+                                    <?php endif ?>
+
+                                <?php endforeach ?>
+
+                            </select>
+
+                        </div>
+
+                        <div class="field-text">
+
+                            <label for="fabricante"> Fabricante: </label>
+                            <select name="fabricante">
+
+                                <option value="nenhum"> Selecione </option>
+
+                                <?php foreach($model[4] as $fabricante): ?>
+
+                                    <?php if(isset($_GET["id"]) && $fabricante->id == $model[0]->fk_fabricante): ?>
+
+                                        <option value="<?= $fabricante->id ?>" selected> <?= $fabricante->nome ?> </option>
+
+                                    <?php else: ?>
+
+                                        <option value="<?= $fabricante->id ?>"> <?= $fabricante->descricao ?> </option>
+
+                                    <?php endif ?>
+
+                                <?php endforeach ?>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <div class="line-checkbox">
+
+                        <div class="field-checkbox">
+
+                            <label for="revisao"> Revisado? </label>
+                            <input type="checkbox" name="revisao">
+
+                        </div>
+
+                        <div class="field-checkbox">
+
+                            <label for="sinistro"> Sinistrado? </label>
+                            <input type="checkbox" name="sinistro">
+
+                        </div>
+
+                        <div class="field-checkbox">
+
+                            <label for="roubo_furto"> Roubo / Furto? </label>
+                            <input type="checkbox" name="roubo_furto">
+
+                        </div>
+
+                    </div>
+
+                    <div class="line-checkbox">
+
+                        <div class="field-checkbox">
+
+                            <label for="aluguel"> Aluga-se? </label>
+                            <input type="checkbox" name="aluguel">
+
+                        </div>
+
+                        <div class="field-checkbox">
+
+                            <label for="venda"> Vende-se? </label>
+                            <input type="checkbox" name="venda">
+
+                        </div>
+
+                        <div class="field-checkbox">
+
+                            <label for="particular"> Veículo particular? </label>
+                            <input type="checkbox" name="particular">
+
+                        </div>
+
+                    </div>
+
+                    <input type="hidden" value="<?= $model[0]->observacoes ?>">
+
+                    <button type="submit"> SALVAR </button>
+
+                </form>
+
+                <div id="others">
+
+                    <button id="btn_voltar"> <a href="/"> VOLTAR </a> </button>
+
+                    <button id="btn_listagem"> <a href="/veiculo/listagem"> LISTAGEM </a> </button>
+
+                </div>
+
+            </div>
+
+        </fieldset>
         
     </body>
 

@@ -1,0 +1,190 @@
+* {
+
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+body {
+
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url("/View/Modules/Veiculo/Images/Wallpaper.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+
+fieldset {
+
+    height: 90%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+#container {
+
+    height: 90%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #808080;
+
+}
+
+#form {
+
+    height: 80%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #FFFFFF;
+    overflow-y: auto;
+
+}
+
+form input, form select {
+
+    width: 40%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+
+}
+
+form button {
+
+    margin-top: 10px;
+    padding: 5px;
+    background-color: #008000;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+.line-text {
+
+    height: 10%;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 5px;
+
+}
+
+.line-checkbox {
+
+    height: 15%;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 5px;
+
+}
+
+.field-text {
+
+    height: 90%;
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.field-text label {
+
+    margin-right: 2.5px;
+
+}
+
+.field-text input, .field-text select {
+
+    margin-left: 2.5px;
+
+}
+
+.field-checkbox {
+
+    height: 90%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.field-checkbox label {
+
+    margin-bottom: 1px;
+
+}
+
+.field-checkbox input {
+
+    margin-top: 0px;
+
+}
+
+#others {
+
+    height: 5%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+#others button {
+
+    padding: 5px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+#others button a {
+
+    text-decoration: none;
+    color: #FFFFFF;
+
+}
+
+#btn_voltar {
+
+    background-color: #FF0000;
+
+}
+
+#btn_listagem {
+
+    background-color: #FFA500;
+
+}

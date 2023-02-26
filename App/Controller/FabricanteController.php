@@ -15,7 +15,6 @@ class FabricanteController extends Controller
         $model = new FabricanteModel();
 
         $marca = new MarcaModel();
-
         $marca->GetAllRows();
 
         if(isset($_GET["id"]))
