@@ -53,7 +53,7 @@
                     <input type="hidden" name="particular" value="<?= $model->particular ?>">
 
                     <label for="observacoes"> Observações: </label>
-                    <textarea name="observacoes" cols="30" rows="10"><?= $model->observacoes ?></textarea>
+                    <textarea name="observacoes" cols="30" rows="10"> <?= $model->observacoes ?> </textarea>
 
                     <input type="hidden" name="marca" value="<?= $model->fk_marca ?>">
 

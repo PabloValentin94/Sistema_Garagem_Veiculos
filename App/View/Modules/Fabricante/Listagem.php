@@ -67,6 +67,8 @@
 
             </div>
 
+            <button id="btn_voltar"> <a href="/fabricante/cadastro"> VOLTAR </a> </button>
+
         </div>
         
     </body>

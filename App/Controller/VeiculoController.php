@@ -160,7 +160,7 @@ class VeiculoController extends Controller
             else
             {
 
-                header("Location: /");
+                header("Location: /veiculo/listagem");
 
             }
 
@@ -370,7 +370,89 @@ class VeiculoController extends Controller
     public static function Table()
     {
 
-        parent::render("Veiculo/Listagem");
+        $model = new VeiculoModel();
+        $model->GetAllRows();
+
+        $marca = new MarcaModel();
+        //$marca->GetAllRows();
+
+        $tipo = new TipoModel();
+        //$tipo->GetAllRows();
+
+        $combustivel = new CombustivelModel();
+        //$combustivel->GetAllRows();
+
+        $fabricante = new FabricanteModel();
+        //$fabricante->GetAllRows();
+
+        if(isset($_POST["veiculo"]))
+        {
+
+            $dados = [
+
+                $model->rows,
+
+                $registro = $model->GetByID((int) $_POST["veiculo"]),
+    
+                $marca->GetByID($registro->fk_marca),
+
+                $tipo->GetByID($registro->fk_tipo),
+
+                $combustivel->GetByID($registro->fk_combustivel),
+
+                $fabricante->GetByID($registro->fk_fabricante)
+    
+            ];
+
+            /*var_dump($dados);
+
+            exit();*/
+    
+            /*$dados = [
+    
+                $model->rows,
+    
+                $marca->rows,
+    
+                $tipo->rows,
+    
+                $combustivel->rows,
+    
+                $fabricante->rows
+    
+            ];
+    
+            if(isset($_POST["veiculo"]))
+            {
+    
+                array_push($dados, $_POST["veiculo"]);
+    
+            }*/
+
+        }
+
+        else
+        {
+
+            $dados = [
+
+                $model->rows,
+
+                NULL,
+    
+                NULL,
+
+                NULL,
+
+                NULL,
+
+                NULL
+    
+            ];
+
+        }
+
+        parent::render("Veiculo/Listagem", $dados);
 
     }
 

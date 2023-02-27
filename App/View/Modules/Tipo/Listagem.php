@@ -56,6 +56,8 @@
 
             </div>
 
+            <button id="btn_voltar"> <a href="/tipo/cadastro"> VOLTAR </a> </button>
+
         </div>
         
     </body>

@@ -33,7 +33,7 @@
                         <div class="field-text">
 
                             <label for="numero_chassi"> Número do chassi: </label>
-                            <input type="text" name="numero_chassi" value="<?= $model[0]->numero_chassi ?>" maxlength="17" required>
+                            <input type="text" name="numero_chassi" value="<?= $model[0]->numero_chassi ?>" minlength="17" maxlength="17" required>
 
                         </div>
 
@@ -87,7 +87,7 @@
                         <div class="field-text">
 
                             <label for="ano"> Ano: </label>
-                            <input type="number" name="ano" value="<?= $model[0]->ano ?>" required>
+                            <input type="number" name="ano" min="1886" max="2100" value="<?= $model[0]->ano ?>" required>
 
                         </div>
 
@@ -215,7 +215,7 @@
 
                         <div class="field-checkbox">
 
-                            <label for="roubo_furto"> Roubo / Furto? </label>
+                            <label for="roubo_furto"> Roubado? / Furtado? </label>
                             
                             <?php if($model[0]->roubo_furto == 1): ?>
 

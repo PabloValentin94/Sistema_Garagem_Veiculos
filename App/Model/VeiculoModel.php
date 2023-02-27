@@ -43,6 +43,8 @@ class VeiculoModel extends Model
 
         $dao->Delete($id);
 
+        header("Location: /veiculo/listagem");
+
     }
 
     public function GetAllRows()
