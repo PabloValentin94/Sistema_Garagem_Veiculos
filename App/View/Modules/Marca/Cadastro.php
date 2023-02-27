@@ -29,7 +29,7 @@
                     <input type="hidden" name="id" value="<?= $model->id ?>">
 
                     <label for="nome"> Nome: </label>
-                    <input type="text" name="nome" value="<?= $model->nome ?>" required>
+                    <input type="text" name="nome" value="<?= $model->nome ?>" maxlength="50" required>
 
                     <button type="submit"> SALVAR </button>
 

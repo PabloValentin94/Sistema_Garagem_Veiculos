@@ -69,14 +69,14 @@
                         <div class="field-text">
 
                             <label for="modelo"> Modelo: </label>
-                            <input type="text" name="modelo" value="<?= $model[0]->modelo ?>" required>
+                            <input type="text" name="modelo" value="<?= $model[0]->modelo ?>" maxlength="50" required>
 
                         </div>
 
                         <div class="field-text">
 
                             <label for="cor"> Cor: </label>
-                            <input type="text" name="cor" value="<?= $model[0]->cor ?>">
+                            <input type="text" name="cor" value="<?= $model[0]->cor ?>" maxlength="50">
 
                         </div>
 
