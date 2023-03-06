@@ -33,7 +33,7 @@
                         <div class="field-text">
 
                             <label for="numero_chassi"> Número do chassi: </label>
-                            <input type="text" name="numero_chassi" value="<?= $model[0]->numero_chassi ?>" minlength="17" maxlength="17" required>
+                            <input type="text" name="numero_chassi" value="<?= $model[0]->numero_chassi ?>" minlength="17" maxlength="20" required>
 
                         </div>
 

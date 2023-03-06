@@ -68,7 +68,7 @@ class VeiculoController extends Controller
 
             $model->id = $_POST["id"];
 
-            $model->numero_chassi = $_POST["numero_chassi"];
+            $model->numero_chassi = trim($_POST["numero_chassi"]);
 
             $model->modelo = $_POST["modelo"];
 
@@ -171,7 +171,7 @@ class VeiculoController extends Controller
 
             $model->id = $_POST["id"];
 
-            $model->numero_chassi = $_POST["numero_chassi"];
+            $model->numero_chassi = trim($_POST["numero_chassi"]);
 
             $model->modelo = $_POST["modelo"];
 
@@ -430,6 +430,7 @@ class VeiculoController extends Controller
                 array_push($dados, NULL);
 
             }
+
             else
             {
 
@@ -443,6 +444,7 @@ class VeiculoController extends Controller
                 array_push($dados, NULL);
 
             }
+
             else
             {
 

@@ -1,6 +1,6 @@
 <?php
 
-spl_autoload_register(function ($nome_classe)
+spl_autoload_register(function($nome_classe)
 {
 
     $arquivo = BASEDIR . $nome_classe . ".php";
