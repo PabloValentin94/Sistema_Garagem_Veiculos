@@ -89,7 +89,7 @@
 
                             <tr> <td> Fabricante </td> <td> Tipo </td> </tr>
 
-                            <tr> <td> Combustível </td> <td style="text-overflow: ellipsis;"> Observações </td> </tr>
+                            <tr> <td> Combustível </td> <td> Observações </td> </tr>
 
                         <?php else: ?>
 
@@ -99,7 +99,7 @@
 
                             <tr>
                                 
-                                <td> <?= $model[1]->cor ?> </td>
+                                <td> <?php if($model[1]->cor != ""): ?> <?= $model[1]->cor ?> <?php else: ?> Não informada. <?php endif ?> </td>
                                 
                                 <td> <?php if($model[1]->revisao == 1): ?> <input type="checkbox" disabled checked> <?php else: ?> <input type="checkbox" disabled> <?php endif ?> </td> </td>
                             
@@ -125,13 +125,25 @@
                                 
                                 <td> <?php if($model[1]->particular == 1): ?> <input type="checkbox" disabled checked> <?php else: ?> <input type="checkbox" disabled> <?php endif ?> </td> </td>
                                 
-                                <td> <?= $model[2]->nome ?> </td>
+                                <td> <?php if($model[2] != NULL): ?> <?= $model[2]->nome ?> <?php else: ?> Não informado. <?php endif ?> </td>
                             
                             </tr>
 
-                            <tr> <td> <?= $model[5]->descricao ?> </td> <td> <?= $model[3]->descricao ?> </td> </tr>
+                            <tr>
+                                
+                                <td> <?php if($model[5] != NULL): ?> <?= $model[5]->descricao ?> <?php else: ?> Não informado. <?php endif ?> </td>
+                                
+                                <td> <?php if($model[3] != NULL): ?> <?= $model[3]->descricao ?> <?php else: ?> Não informado. <?php endif ?> </td>
+                            
+                            </tr>
 
-                            <tr> <td> <?= $model[4]->descricao ?> </td> <td style="overflow-y: auto;"> <?= $model[1]->observacoes ?> </td> </tr>
+                            <tr>
+                                
+                                <td> <?php if($model[4] != NULL): ?> <?= $model[4]->descricao ?> <?php else: ?> Não informado. <?php endif ?> </td>
+                                
+                                <td style="overflow-y: auto;"> <?php if($model[1]->observacoes != ""): ?> <?= $model[1]->observacoes ?> <?php else: ?> Nenhuma. <?php endif ?> </td>
+                            
+                            </tr>
 
                         <?php endif ?>
 
@@ -156,8 +168,6 @@
                     </table>
 
                 </div>
-
-                <table></table>
 
             </div>
 

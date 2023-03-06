@@ -392,42 +392,63 @@ class VeiculoController extends Controller
 
                 $model->rows,
 
-                $registro = $model->GetByID((int) $_POST["veiculo"]),
-    
-                $marca->GetByID($registro->fk_marca),
-
-                $tipo->GetByID($registro->fk_tipo),
-
-                $combustivel->GetByID($registro->fk_combustivel),
-
-                $fabricante->GetByID($registro->fk_fabricante)
+                $registro = $model->GetByID((int) $_POST["veiculo"])
     
             ];
 
-            /*var_dump($dados);
-
-            exit();*/
-    
-            /*$dados = [
-    
-                $model->rows,
-    
-                $marca->rows,
-    
-                $tipo->rows,
-    
-                $combustivel->rows,
-    
-                $fabricante->rows
-    
-            ];
-    
-            if(isset($_POST["veiculo"]))
+            if($dados[1]->fk_marca == NULL)
             {
-    
-                array_push($dados, $_POST["veiculo"]);
-    
-            }*/
+
+                array_push($dados, NULL);
+
+            }
+
+            else
+            {
+
+                array_push($dados, $marca->GetByID($dados[1]->fk_marca));
+
+            }
+
+            if($dados[1]->fk_tipo == NULL)
+            {
+
+                array_push($dados, NULL);
+
+            }
+
+            else
+            {
+
+                array_push($dados, $tipo->GetByID($dados[1]->fk_tipo));
+
+            }
+
+            if($dados[1]->fk_combustivel == NULL)
+            {
+
+                array_push($dados, NULL);
+
+            }
+            else
+            {
+
+                array_push($dados, $combustivel->GetByID($dados[1]->fk_combustivel));
+
+            }
+
+            if($dados[1]->fk_fabricante == NULL)
+            {
+
+                array_push($dados, NULL);
+
+            }
+            else
+            {
+
+                array_push($dados, $fabricante->GetByID($dados[1]->fk_fabricante));
+                
+            }
 
         }
 
