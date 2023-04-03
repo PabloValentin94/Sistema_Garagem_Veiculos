@@ -70,7 +70,7 @@ class VeiculoController extends Controller
 
             $model->numero_chassi = trim($_POST["numero_chassi"]);
 
-            $model->modelo = $_POST["modelo"];
+            $model->modelo = strtoupper($_POST["modelo"]);
 
             $model->ano = (int) $_POST["ano"];
 

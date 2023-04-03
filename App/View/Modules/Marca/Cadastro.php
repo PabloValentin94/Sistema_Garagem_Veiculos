@@ -28,7 +28,7 @@
 
                     <input type="hidden" name="id" value="<?= $model->id ?>">
 
-                    <label for="nome"> Nome: </label>
+                    <label for="nome"> Marca: </label>
                     <input type="text" name="nome" value="<?= $model->nome ?>" maxlength="50" required>
 
                     <button type="submit"> SALVAR </button>

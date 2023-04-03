@@ -69,14 +69,14 @@
                         <div class="field-text">
 
                             <label for="modelo"> Modelo: </label>
-                            <input type="text" name="modelo" value="<?= $model[0]->modelo ?>" maxlength="50" required>
+                            <input type="text" name="modelo" value="<?= $model[0]->modelo ?>" minlength="1" maxlength="5" required>
 
                         </div>
 
                         <div class="field-text">
 
                             <label for="cor"> Cor: </label>
-                            <input type="text" name="cor" value="<?= $model[0]->cor ?>" maxlength="50">
+                            <input type="text" name="cor" value="<?= $model[0]->cor ?>" maxlength="25">
 
                         </div>
 
@@ -94,7 +94,7 @@
                         <div class="field-text">
 
                             <label for="quilometragem"> Quilometragem: </label>
-                            <input type="number" name="quilometragem" value="<?= $model[0]->quilometragem ?>" required>
+                            <input type="number" name="quilometragem" min="0" max="999999999" value="<?= $model[0]->quilometragem ?>" required>
 
                         </div>
 

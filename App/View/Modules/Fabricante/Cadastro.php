@@ -28,7 +28,7 @@
 
                     <input type="hidden" name="id" value="<?= $model[0]->id ?>">
 
-                    <label for="descricao"> Descrição: </label>
+                    <label for="descricao"> Fabricante: </label>
                     <input type="text" name="descricao" value="<?= $model[0]->descricao ?>" maxlength="100" required>
 
                     <label for="marca"> Marca: </label>
