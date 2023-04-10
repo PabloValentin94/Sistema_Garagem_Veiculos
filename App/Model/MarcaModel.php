@@ -7,7 +7,7 @@ use App\DAO\MarcaDAO;
 class MarcaModel extends Model
 {
 
-    public $id, $nome;
+    public $id, $nome, $fk_fabricante;
 
     public function Save()
     {

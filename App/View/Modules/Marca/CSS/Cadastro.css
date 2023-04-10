@@ -56,17 +56,18 @@ fieldset {
 
 }
 
-form input {
+form input, form select {
 
     width: 40%;
     margin-top: 10px;
+    margin-bottom: 10px;
     text-align: center;
 
 }
 
 form button {
 
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 5px;
     background-color: #008000;
     border: 2px solid #000000;

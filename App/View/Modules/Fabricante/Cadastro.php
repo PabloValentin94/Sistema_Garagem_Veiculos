@@ -26,31 +26,10 @@
 
                 <form method="post" action="/fabricante/cadastro/salvar" id="form">
 
-                    <input type="hidden" name="id" value="<?= $model[0]->id ?>">
+                    <input type="hidden" name="id" value="<?= $model->id ?>">
 
                     <label for="descricao"> Fabricante: </label>
-                    <input type="text" name="descricao" value="<?= $model[0]->descricao ?>" maxlength="100" required>
-
-                    <label for="marca"> Marca: </label>
-                    <Select name="marca" required>
-
-                        <option value="<?= NULL ?>"> Selecione </option>
-
-                        <?php foreach($model[1] as $marca): ?>
-
-                            <?php if(isset($_GET["id"]) && $model[0]->fk_marca != NULL  && $marca->id == $model[0]->fk_marca): ?>
-
-                                <option value="<?= $marca->id ?>" selected> <?= $marca->nome ?> </option>
-
-                            <?php else: ?>
-
-                                <option value="<?= $marca->id ?>"> <?= $marca->nome ?> </option>
-
-                            <?php endif ?>
-
-                        <?php endforeach ?>
-
-                    </Select>
+                    <input type="text" name="descricao" value="<?= $model->descricao ?>" maxlength="100" required>
 
                     <button type="submit"> SALVAR </button>
 

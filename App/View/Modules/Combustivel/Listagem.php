@@ -24,7 +24,7 @@
 
                 <tr>
 
-                    <th> Descrição </th>
+                    <th> Combustível </th>
 
                     <th> Botão - Editar </th>
 

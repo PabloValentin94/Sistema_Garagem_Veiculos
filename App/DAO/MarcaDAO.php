@@ -19,11 +19,13 @@ class MarcaDAO extends DAO
     public function Insert(MarcaModel $model)
     {
 
-        $sql = "INSERT INTO Marca(nome) VALUES(?)";
+        $sql = "INSERT INTO Marca(nome, fk_fabricante) VALUES(?, ?)";
 
         $stmt = $this->conexao->prepare($sql);
 
         $stmt->bindValue(1, $model->nome);
+
+        $stmt->bindValue(2, $model->fk_fabricante);
 
         $stmt->execute();
 
@@ -32,13 +34,15 @@ class MarcaDAO extends DAO
     public function Update(MarcaModel $model)
     {
 
-        $sql = "UPDATE Marca SET nome = ? WHERE id = ?";
+        $sql = "UPDATE Marca SET nome = ?, fk_fabricante = ? WHERE id = ?";
 
         $stmt = $this->conexao->prepare($sql);
 
         $stmt->bindValue(1, $model->nome);
+        
+        $stmt->bindValue(2, $model->fk_fabricante);
 
-        $stmt->bindValue(2, $model->id);
+        $stmt->bindValue(3, $model->id);
 
         $stmt->execute();
 

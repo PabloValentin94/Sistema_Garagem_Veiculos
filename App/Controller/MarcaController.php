@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Model\MarcaModel;
 
+use App\Model\FabricanteModel;
+
 class MarcaController extends Controller
 {
 
@@ -12,6 +14,10 @@ class MarcaController extends Controller
 
         $model = new MarcaModel();
 
+        $fabricante = new FabricanteModel();
+
+        $fabricante->GetAllRows();
+
         if(isset($_GET["id"]))
         {
 
@@ -19,7 +25,15 @@ class MarcaController extends Controller
 
         }
 
-        parent::render("Marca/Cadastro", $model);
+        $dados = [
+
+            $model,
+
+            $fabricante->rows
+
+        ];
+
+        parent::render("Marca/Cadastro", $dados);
 
     }
 
@@ -31,6 +45,8 @@ class MarcaController extends Controller
         $model->id = $_POST["id"];
 
         $model->nome = $_POST["nome"];
+
+        $model->fk_fabricante = $_POST["fabricante"];
 
         $model->Save();
 
@@ -50,9 +66,21 @@ class MarcaController extends Controller
 
         $model = new MarcaModel();
 
+        $fabricante = new FabricanteModel();
+
         $model->GetAllRows();
 
-        parent::render("Marca/Listagem", $model);
+        $fabricante->GetAllRows();
+
+        $dados = [
+
+            $model->rows,
+
+            $fabricante->rows
+
+        ];
+
+        parent::render("Marca/Listagem", $dados);
 
     }
 

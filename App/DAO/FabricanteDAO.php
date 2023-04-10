@@ -19,13 +19,11 @@ class FabricanteDAO extends DAO
     public function Insert(FabricanteModel $model)
     {
 
-        $sql = "INSERT INTO Fabricante(descricao, fk_marca) VALUES(?, ?)";
+        $sql = "INSERT INTO Fabricante(descricao) VALUES(?)";
 
         $stmt = $this->conexao->prepare($sql);
 
         $stmt->bindValue(1, $model->descricao);
-
-        $stmt->bindValue(2, $model->fk_marca);
 
         $stmt->execute();
 
@@ -34,15 +32,13 @@ class FabricanteDAO extends DAO
     public function Update(FabricanteModel $model)
     {
 
-        $sql = "UPDATE Fabricante SET descricao = ?, fk_marca = ? WHERE id = ?";
+        $sql = "UPDATE Fabricante SET descricao = ? WHERE id = ?";
 
         $stmt = $this->conexao->prepare($sql);
 
         $stmt->bindValue(1, $model->descricao);
 
-        $stmt->bindValue(2, $model->fk_marca);
-
-        $stmt->bindValue(3, $model->id);
+        $stmt->bindValue(2, $model->id);
 
         $stmt->execute();
 

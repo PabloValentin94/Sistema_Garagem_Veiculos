@@ -2,7 +2,7 @@ Pendências - Teste de Qualidade de Software:
 
 - Criar uma função que verifica se um campo de texto está e branco e, se estiver, não cadastrar;
 
-- Corrigir os formulários de marca e de fabricante (Conceitos invertidos);
+- Corrigir os formulários de marca e de fabricante (Conceitos invertidos); ✅
 
 - Criar um formulário de listagem de veículos de acordo com sua marca;
 

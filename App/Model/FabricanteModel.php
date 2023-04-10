@@ -7,7 +7,7 @@ use App\DAO\FabricanteDAO;
 class FabricanteModel extends Model
 {
 
-    public $id, $descricao, $fk_marca;
+    public $id, $descricao;
 
     public function Save()
     {

@@ -24,7 +24,7 @@
 
                 <tr>
 
-                    <th> Descrição </th>
+                    <th> Tipo </th>
 
                     <th> Botão - Editar </th>
 
