@@ -14,6 +14,25 @@
 
         <title> Cadastro de Veículos </title>
 
+        <script type="text/javascript">
+
+            function Verificar_Campo()
+            {
+
+                const numero_chassi = document.getElementById("numero_chassi");
+
+                const modelo = document.getElementById("modelo");
+
+                const cor = document.getElementById("cor");
+
+                const ano = document.getElementById("ano");
+
+                const quilometragem = document.getElementById("quilometragem");
+                
+            }
+
+        </script>
+
     </head>
 
     <body>
@@ -33,7 +52,7 @@
                         <div class="field-text">
 
                             <label for="numero_chassi"> Número do chassi: </label>
-                            <input type="text" name="numero_chassi" value="<?= $model[0]->numero_chassi ?>" minlength="17" maxlength="20" required>
+                            <input type="text" id="numero_chassi" name="numero_chassi" value="<?= $model[0]->numero_chassi ?>" minlength="17" maxlength="20" required>
 
                         </div>
 
@@ -69,14 +88,14 @@
                         <div class="field-text">
 
                             <label for="modelo"> Modelo: </label>
-                            <input type="text" name="modelo" value="<?= $model[0]->modelo ?>" minlength="1" maxlength="5" required>
+                            <input type="text" id="modelo" name="modelo" value="<?= $model[0]->modelo ?>" minlength="1" maxlength="5" required>
 
                         </div>
 
                         <div class="field-text">
 
                             <label for="cor"> Cor: </label>
-                            <input type="text" name="cor" value="<?= $model[0]->cor ?>" maxlength="25">
+                            <input type="text" id="cor" name="cor" value="<?= $model[0]->cor ?>" maxlength="25">
 
                         </div>
 
@@ -87,14 +106,14 @@
                         <div class="field-text">
 
                             <label for="ano"> Ano: </label>
-                            <input type="number" name="ano" min="1886" max="2100" value="<?= $model[0]->ano ?>" required>
+                            <input type="number" id="ano" name="ano" min="1886" max="2100" value="<?= $model[0]->ano ?>" required>
 
                         </div>
 
                         <div class="field-text">
 
                             <label for="quilometragem"> Quilometragem: </label>
-                            <input type="number" name="quilometragem" min="0" max="999999999" value="<?= $model[0]->quilometragem ?>" required>
+                            <input type="number" id="quilometragem" name="quilometragem" min="0" max="999999999" value="<?= $model[0]->quilometragem ?>" required>
 
                         </div>
 
@@ -285,7 +304,7 @@
 
                     <input type="hidden" name="observacoes" value="<?= $model[0]->observacoes ?>">
 
-                    <button type="submit"> SALVAR </button>
+                    <button type="submit" onclick="Verificar_Campo()"> SALVAR </button>
 
                 </form>
 
