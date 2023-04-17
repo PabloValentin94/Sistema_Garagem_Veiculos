@@ -385,14 +385,152 @@ class VeiculoController extends Controller
         $fabricante = new FabricanteModel();
         //$fabricante->GetAllRows();
 
-        if(isset($_POST["veiculo"]))
+        if(isset($_POST["numero_chassi"]))
         {
 
             $dados = [
 
                 $model->rows,
 
-                $registro = $model->GetByID((int) $_POST["veiculo"])
+                $registro = $model->GetByID((int) $_POST["numero_chassi"])
+    
+            ];
+
+            if($dados[1]->fk_marca == NULL)
+            {
+
+                array_push($dados, NULL);
+
+            }
+
+            else
+            {
+
+                array_push($dados, $marca->GetByID($dados[1]->fk_marca));
+
+            }
+
+            if($dados[1]->fk_tipo == NULL)
+            {
+
+                array_push($dados, NULL);
+
+            }
+
+            else
+            {
+
+                array_push($dados, $tipo->GetByID($dados[1]->fk_tipo));
+
+            }
+
+            if($dados[1]->fk_combustivel == NULL)
+            {
+
+                array_push($dados, NULL);
+
+            }
+
+            else
+            {
+
+                array_push($dados, $combustivel->GetByID($dados[1]->fk_combustivel));
+
+            }
+
+            if($dados[1]->fk_fabricante == NULL)
+            {
+
+                array_push($dados, NULL);
+
+            }
+
+            else
+            {
+
+                array_push($dados, $fabricante->GetByID($dados[1]->fk_fabricante));
+                
+            }
+
+        }
+
+        else if(isset($_POST["marca"]))
+        {
+
+            $dados = [
+
+                $model->rows,
+
+                $registro = $model->GetByID((int) $_POST["marca"])
+    
+            ];
+
+            if($dados[1]->fk_marca == NULL)
+            {
+
+                array_push($dados, NULL);
+
+            }
+
+            else
+            {
+
+                array_push($dados, $marca->GetByID($dados[1]->fk_marca));
+
+            }
+
+            if($dados[1]->fk_tipo == NULL)
+            {
+
+                array_push($dados, NULL);
+
+            }
+
+            else
+            {
+
+                array_push($dados, $tipo->GetByID($dados[1]->fk_tipo));
+
+            }
+
+            if($dados[1]->fk_combustivel == NULL)
+            {
+
+                array_push($dados, NULL);
+
+            }
+
+            else
+            {
+
+                array_push($dados, $combustivel->GetByID($dados[1]->fk_combustivel));
+
+            }
+
+            if($dados[1]->fk_fabricante == NULL)
+            {
+
+                array_push($dados, NULL);
+
+            }
+
+            else
+            {
+
+                array_push($dados, $fabricante->GetByID($dados[1]->fk_fabricante));
+                
+            }
+
+        }
+
+        else if(isset($_POST["fabricante"]))
+        {
+
+            $dados = [
+
+                $model->rows,
+
+                $registro = $model->GetByID((int) $_POST["fabricante"])
     
             ];
 
@@ -475,7 +613,7 @@ class VeiculoController extends Controller
 
         }
 
-        parent::render("Veiculo/Listagem", $dados);
+        parent::render("Veiculo/ListagemNumeroChassi", $dados);
 
     }
 
