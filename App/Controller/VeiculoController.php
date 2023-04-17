@@ -376,7 +376,44 @@ class VeiculoController extends Controller
 
         $marca = new MarcaModel();
 
-        $model->GetAllRows();
+        if(isset($_POST["marca"]) && isset($_POST["fabricante"]))
+        {
+
+            if($_POST["marca"] == NULL && $_POST["fabricante"] == NULL)
+            {
+
+                $model->GetAllRows();
+
+            }
+
+            else if($_POST["marca"] != NULL && $_POST["fabricante"] == NULL)
+            {
+
+                $model->GetByIDMarcaAndIDFabricante((int) $_POST["marca"], NULL);
+
+            }
+
+            else if($_POST["marca"] == NULL && $_POST["fabricante"] != NULL)
+            {
+
+                $model->GetByIDMarcaAndIDFabricante(NULL, (int) $_POST["fabricante"]);
+
+            }
+
+            else
+            {
+
+                $model->GetByIDMarcaAndIDFabricante((int) $_POST["marca"], (int) $_POST["fabricante"]);
+                
+            }
+
+        }
+
+        else
+        {
+
+
+        }
 
         $fabricante->GetAllRows();
 

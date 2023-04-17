@@ -90,6 +90,15 @@ class VeiculoModel extends Model
 
     }
 
+    public function GetByIDMarcaAndIDFabricante($id_marca, $id_fabricante)
+    {
+
+        $dao = new VeiculoDAO();
+
+        $this->rows = $dao->SelectByIDMarcaAndIDFabricante($id_marca, $id_fabricante);
+
+    }
+
 }
 
 ?>

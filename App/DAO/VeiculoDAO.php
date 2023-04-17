@@ -164,6 +164,59 @@ class VeiculoDAO extends DAO
 
     }
 
+    public function SelectByIDMarcaAndIDFabricante($id_marca, $id_fabricante)
+    {
+
+        if(!$id_marca && $id_fabricante)
+        {
+
+            $sql = "SELECT * FROM Veiculo WHERE fk_fabricante = ? ORDER BY id ASC";
+
+            $stmt = $this->conexao->prepare($sql);
+
+            $stmt->bindValue(1, $id_fabricante);
+
+        }
+
+        else if ($id_marca && !$id_fabricante)
+        {
+
+            $sql = "SELECT * FROM Veiculo WHERE fk_marca = ? ORDER BY id ASC";
+
+            $stmt = $this->conexao->prepare($sql);
+
+            $stmt->bindValue(1, $id_marca);
+
+        }
+
+        else if($id_marca && $id_fabricante)
+        {
+
+            $sql = "SELECT * FROM Veiculo WHERE fk_marca = ? AND fk_fabricante = ? ORDER BY id ASC";
+
+            $stmt = $this->conexao->prepare($sql);
+
+            $stmt->bindValue(1, $id_marca);
+
+            $stmt->bindValue(2, $id_fabricante);
+
+        }
+
+        else
+        {
+
+            $sql = "SELECT * FROM Veiculo ORDER BY id ASC";
+
+            $stmt = $this->conexao->prepare($sql);
+
+        }
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
+
+    }
+
 }
 
 ?>

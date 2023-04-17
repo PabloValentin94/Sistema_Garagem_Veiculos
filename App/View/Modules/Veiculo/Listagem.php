@@ -20,6 +20,54 @@
 
         <div id="container">
 
+            <div id="search">
+
+                <form method="post" action="/veiculo/listagem">
+
+                    <div id="selection_marca">
+
+                        <label for="marca"> Marca: </label>
+                        <select name="marca">
+
+                            <option value="<?= NULL ?>"> Selecione </option>
+
+                            <?php foreach($model[1] as $marca): ?>
+
+                                <option value="<?= $marca->id ?>"> <?= $marca->nome ?> </option>
+
+                            <?php endforeach ?>
+
+                        </select>
+
+                    </div>
+
+                    <div id="selection_fabricante">
+
+                        <label for="fabricante"> Fabricante: </label>
+                        <select name="fabricante">
+
+                            <option value="<?= NULL ?>"> Selecione </option>
+
+                            <?php foreach($model[2] as $fabricante): ?>
+
+                                <option value="<?= $fabricante->id ?>"> <?= $fabricante->descricao ?> </option>
+
+                            <?php endforeach ?>
+
+                        </select>
+
+                    </div>
+
+                    <div id="botao_procurar">
+
+                        <button type="submit"> PROCURAR </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
             <table id="header">
 
                 <tr>
