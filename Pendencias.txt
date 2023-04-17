@@ -4,6 +4,6 @@ Pendências - Teste de Qualidade de Software:
 
 - Corrigir os formulários de marca e de fabricante (Conceitos invertidos); ✅
 
-- Criar um formulário de listagem de veículos de acordo com sua marca;
+- Criar um formulário de listagem de veículos de acordo com sua marca; ✅
 
-- Criar um formulário de listagem de veículos de acordo com seu fabricante.
+- Criar um formulário de listagem de veículos de acordo com seu fabricante. ✅

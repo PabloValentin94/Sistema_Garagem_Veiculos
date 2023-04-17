@@ -74,7 +74,7 @@
 
                             <tr> <td> <?= $model[1]->numero_chassi ?> </td> <td> <?= $model[1]->modelo ?> </td> </tr>
 
-                            <tr> <td> <?= $model[1]->ano ?> </td> <td> <?= $model[1]->quilometragem ?> </td> </tr>
+                            <tr> <td> <?= $model[1]->ano ?> </td> <td> <?= $model[1]->quilometragem ?> Km </td> </tr>
 
                             <tr>
                                 

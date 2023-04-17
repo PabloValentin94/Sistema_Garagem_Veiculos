@@ -125,6 +125,10 @@ switch($url)
         VeiculoController::Table();
     break;
 
+    case "/veiculo/visualizacao":
+        VeiculoController::Exibition();
+    break;
+
     // Exibição padrão:
 
     default:
