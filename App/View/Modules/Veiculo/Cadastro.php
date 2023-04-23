@@ -12,26 +12,9 @@
 
         <link rel="stylesheet" type="text/css" href="/View/Modules/Veiculo/CSS/Cadastro.css">
 
+        <!--<script type="text/javascript" src="/View/Modules/Veiculo/JS/Script.js">  </script>-->
+
         <title> Cadastro de Veículos </title>
-
-        <script type="text/javascript">
-
-            function Verificar_Campo()
-            {
-
-                const numero_chassi = document.getElementById("numero_chassi");
-
-                const modelo = document.getElementById("modelo");
-
-                const cor = document.getElementById("cor");
-
-                const ano = document.getElementById("ano");
-
-                const quilometragem = document.getElementById("quilometragem");
-                
-            }
-
-        </script>
 
     </head>
 
@@ -95,7 +78,7 @@
                         <div class="field-text">
 
                             <label for="cor"> Cor: </label>
-                            <input type="text" id="cor" name="cor" value="<?= $model[0]->cor ?>" maxlength="25">
+                            <input type="text" id="cor" name="cor" value="<?= $model[0]->cor ?>" maxlength="25" required>
 
                         </div>
 
@@ -304,7 +287,7 @@
 
                     <input type="hidden" name="observacoes" value="<?= $model[0]->observacoes ?>">
 
-                    <button type="submit" onclick="Verificar_Campo()"> SALVAR </button>
+                    <button type="submit" onclick="Verificar_Campos()"> SALVAR </button>
 
                 </form>
 

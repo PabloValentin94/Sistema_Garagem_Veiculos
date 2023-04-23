@@ -70,11 +70,11 @@ class VeiculoController extends Controller
 
             $model->numero_chassi = trim($_POST["numero_chassi"]);
 
-            $model->modelo = strtoupper($_POST["modelo"]);
+            $model->modelo = strtoupper(trim($_POST["modelo"]));
 
             $model->ano = (int) $_POST["ano"];
 
-            $model->cor = $_POST["cor"];
+            $model->cor = trim($_POST["cor"]);
 
             $model->quilometagem = (double) $_POST["quilometragem"];
 
@@ -437,7 +437,7 @@ class VeiculoController extends Controller
     {
 
         $model = new VeiculoModel();
-        $model->GetAllRows();
+        //$model->GetAllRows();
 
         $marca = new MarcaModel();
         //$marca->GetAllRows();
@@ -456,13 +456,13 @@ class VeiculoController extends Controller
 
             $dados = [
 
-                $model->rows,
+                //NULL,
 
                 $registro = $model->GetByID((int) $_GET["id"])
     
             ];
 
-            if($dados[1]->fk_marca == NULL)
+            if($dados[0]->fk_marca == NULL)
             {
 
                 array_push($dados, NULL);
@@ -472,11 +472,11 @@ class VeiculoController extends Controller
             else
             {
 
-                array_push($dados, $marca->GetByID($dados[1]->fk_marca));
+                array_push($dados, $marca->GetByID($dados[0]->fk_marca));
 
             }
 
-            if($dados[1]->fk_tipo == NULL)
+            if($dados[0]->fk_tipo == NULL)
             {
 
                 array_push($dados, NULL);
@@ -486,11 +486,11 @@ class VeiculoController extends Controller
             else
             {
 
-                array_push($dados, $tipo->GetByID($dados[1]->fk_tipo));
+                array_push($dados, $tipo->GetByID($dados[0]->fk_tipo));
 
             }
 
-            if($dados[1]->fk_combustivel == NULL)
+            if($dados[0]->fk_combustivel == NULL)
             {
 
                 array_push($dados, NULL);
@@ -500,11 +500,11 @@ class VeiculoController extends Controller
             else
             {
 
-                array_push($dados, $combustivel->GetByID($dados[1]->fk_combustivel));
+                array_push($dados, $combustivel->GetByID($dados[0]->fk_combustivel));
 
             }
 
-            if($dados[1]->fk_fabricante == NULL)
+            if($dados[0]->fk_fabricante == NULL)
             {
 
                 array_push($dados, NULL);
@@ -514,7 +514,7 @@ class VeiculoController extends Controller
             else
             {
 
-                array_push($dados, $fabricante->GetByID($dados[1]->fk_fabricante));
+                array_push($dados, $fabricante->GetByID($dados[0]->fk_fabricante));
                 
             }
 
@@ -524,8 +524,6 @@ class VeiculoController extends Controller
         {
 
             $dados = [
-
-                $model->rows,
 
                 NULL,
     

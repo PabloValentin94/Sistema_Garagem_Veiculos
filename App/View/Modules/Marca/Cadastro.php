@@ -29,7 +29,7 @@
                     <input type="hidden" name="id" value="<?= $model[0]->id ?>">
 
                     <label for="nome"> Marca: </label>
-                    <input type="text" name="nome" value="<?= $model[0]->nome ?>" maxlength="50" required>
+                    <input type="text" name="nome" value="<?= $model[0]->nome ?>" maxlength="40" required>
 
                     <label for="fabricante"> Fabricante: </label>
                     <Select name="fabricante" required>

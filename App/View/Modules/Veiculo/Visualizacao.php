@@ -52,7 +52,7 @@
 
                     <table id="content">
 
-                        <?php if($model[1] == NULL): ?>
+                        <?php if($model[0] == NULL): ?>
 
                             <tr> <td> Número do Chassi </td> <td> Modelo </td> </tr>
 
@@ -72,47 +72,45 @@
 
                         <?php else: ?>
 
-                            <tr> <td> <?= $model[1]->numero_chassi ?> </td> <td> <?= $model[1]->modelo ?> </td> </tr>
+                            <tr>
+                                
+                                <td> <?php if($model[0]->numero_chassi != ""): ?> <?= $model[0]->numero_chassi ?> <?php else: ?> Não informado. <?php endif ?> </td>
+                                
+                                <td> <?php if($model[0]->modelo != ""): ?> <?= $model[0]->modelo ?> <?php else: ?> Não informado. <?php endif ?> </td>
+                            
+                            </tr>
 
-                            <tr> <td> <?= $model[1]->ano ?> </td> <td> <?= $model[1]->quilometragem ?> Km </td> </tr>
+                            <tr> <td> <?= $model[0]->ano ?> </td> <td> <?= $model[0]->quilometragem ?> Km </td> </tr>
 
                             <tr>
                                 
-                                <td> <?php if($model[1]->cor != ""): ?> <?= $model[1]->cor ?> <?php else: ?> Não informada. <?php endif ?> </td>
+                                <td> <?php if($model[0]->cor != ""): ?> <?= $model[0]->cor ?> <?php else: ?> Não informada. <?php endif ?> </td>
                                 
-                                <td> <?php if($model[1]->revisao == 1): ?> <input type="checkbox" disabled checked> <?php else: ?> <input type="checkbox" disabled> <?php endif ?> </td> </td>
+                                <td> <?php if($model[0]->revisao == 0): ?> <input type="checkbox" disabled checked> <?php else: ?> <input type="checkbox" disabled> <?php endif ?> </td> </td>
                             
                             </tr>
 
                             <tr>
                                 
-                                <td> <?php if($model[1]->sinistro == 1): ?> <input type="checkbox" disabled checked> <?php else: ?> <input type="checkbox" disabled> <?php endif ?> </td>
+                                <td> <?php if($model[0]->sinistro == 0): ?> <input type="checkbox" disabled checked> <?php else: ?> <input type="checkbox" disabled> <?php endif ?> </td>
                                     
-                                <td> <?php if($model[1]->roubo_furto == 1): ?> <input type="checkbox" disabled checked> <?php else: ?> <input type="checkbox" disabled> <?php endif ?> </td>
+                                <td> <?php if($model[0]->roubo_furto == 0): ?> <input type="checkbox" disabled checked> <?php else: ?> <input type="checkbox" disabled> <?php endif ?> </td>
                             
                             </tr>
 
                             <tr>
                                 
-                                <td> <?php if($model[1]->aluguel == 1): ?> <input type="checkbox" disabled checked> <?php else: ?> <input type="checkbox" disabled> <?php endif ?> </td> </td>
+                                <td> <?php if($model[0]->aluguel == 0): ?> <input type="checkbox" disabled checked> <?php else: ?> <input type="checkbox" disabled> <?php endif ?> </td> </td>
                                 
-                                <td> <?php if($model[1]->venda == 1): ?> <input type="checkbox" disabled checked> <?php else: ?> <input type="checkbox" disabled> <?php endif ?> </td> </td>
+                                <td> <?php if($model[0]->venda == 0): ?> <input type="checkbox" disabled checked> <?php else: ?> <input type="checkbox" disabled> <?php endif ?> </td> </td>
                             
                             </tr>
 
                             <tr>
                                 
-                                <td> <?php if($model[1]->particular == 1): ?> <input type="checkbox" disabled checked> <?php else: ?> <input type="checkbox" disabled> <?php endif ?> </td> </td>
+                                <td> <?php if($model[0]->particular == 0): ?> <input type="checkbox" disabled checked> <?php else: ?> <input type="checkbox" disabled> <?php endif ?> </td> </td>
                                 
-                                <td> <?php if($model[2] != NULL): ?> <?= $model[2]->nome ?> <?php else: ?> Não informado. <?php endif ?> </td>
-                            
-                            </tr>
-
-                            <tr>
-                                
-                                <td> <?php if($model[5] != NULL): ?> <?= $model[5]->descricao ?> <?php else: ?> Não informado. <?php endif ?> </td>
-                                
-                                <td> <?php if($model[3] != NULL): ?> <?= $model[3]->descricao ?> <?php else: ?> Não informado. <?php endif ?> </td>
+                                <td> <?php if($model[1] != NULL): ?> <?= $model[1]->nome ?> <?php else: ?> Não informado. <?php endif ?> </td>
                             
                             </tr>
 
@@ -120,7 +118,15 @@
                                 
                                 <td> <?php if($model[4] != NULL): ?> <?= $model[4]->descricao ?> <?php else: ?> Não informado. <?php endif ?> </td>
                                 
-                                <td style="overflow-y: auto;"> <?php if($model[1]->observacoes != ""): ?> <?= $model[1]->observacoes ?> <?php else: ?> Nenhuma. <?php endif ?> </td>
+                                <td> <?php if($model[2] != NULL): ?> <?= $model[2]->descricao ?> <?php else: ?> Não informado. <?php endif ?> </td>
+                            
+                            </tr>
+
+                            <tr>
+                                
+                                <td> <?php if($model[3] != NULL): ?> <?= $model[3]->descricao ?> <?php else: ?> Não informado. <?php endif ?> </td>
+                                
+                                <td style="overflow-y: auto;"> <?php if($model[0]->observacoes != ""): ?> <?= $model[0]->observacoes ?> <?php else: ?> Nenhuma. <?php endif ?> </td>
                             
                             </tr>
 
@@ -128,11 +134,11 @@
 
                         <tr>
 
-                            <?php if($model[1] != NULL): ?>
+                            <?php if($model[0] != NULL): ?>
                             
-                                <td> <button> <a href="/veiculo/cadastro?id=<?= $model[1]->id ?>"> EDITAR </a> </button> </td>
+                                <td> <button> <a href="/veiculo/cadastro?id=<?= $model[0]->id ?>"> EDITAR </a> </button> </td>
                             
-                                <td> <button> <a href="/veiculo/deletar?id=<?= $model[1]->id ?>"> EXCLUIR </a> </button> </td>
+                                <td> <button> <a href="/veiculo/deletar?id=<?= $model[0]->id ?>"> EXCLUIR </a> </button> </td>
 
                             <?php else: ?>
 

@@ -29,7 +29,7 @@
                     <input type="hidden" name="id" value="<?= $model->id ?>">
 
                     <label for="descricao"> Fabricante: </label>
-                    <input type="text" name="descricao" value="<?= $model->descricao ?>" maxlength="100" required>
+                    <input type="text" name="descricao" value="<?= $model->descricao ?>" maxlength="75" required>
 
                     <button type="submit"> SALVAR </button>
 

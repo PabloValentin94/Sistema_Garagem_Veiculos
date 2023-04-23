@@ -78,6 +78,10 @@
 
                     <th> Fabricante </th>
 
+                    <th> Modelo </th>
+
+                    <th> Cor </th>
+
                     <th> Botão - Visualizar </th>
 
                 </tr>
@@ -97,6 +101,10 @@
                             <td> <?= $model[1][$registro->fk_marca - 1]->nome ?> </td>
 
                             <td> <?= $model[2][$registro->fk_fabricante - 1]->descricao ?> </td>
+
+                            <td> <?= $registro->modelo ?> </td>
+
+                            <td> <?= $registro->cor ?> </td>
 
                             <td> <button> <a href="/veiculo/visualizacao?id=<?= $registro->id ?>"> VISUALIZAR </a> </button> </td>
 

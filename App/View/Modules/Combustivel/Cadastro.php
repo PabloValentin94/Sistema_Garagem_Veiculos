@@ -29,7 +29,7 @@
                     <input type="hidden" name="id" value="<?= $model->id ?>">
 
                     <label for="descricao"> Combustível: </label>
-                    <input type="text" name="descricao" value="<?= $model->descricao ?>" maxlength="50" required>
+                    <input type="text" name="descricao" value="<?= $model->descricao ?>" maxlength="30" required>
 
                     <button type="submit"> SALVAR </button>
 

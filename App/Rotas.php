@@ -114,7 +114,10 @@ switch($url)
     break;
 
     case "/veiculo/observacoes":
-        VeiculoController::Observations();
+        if(isset($_GET["id_veiculo"]))
+            VeiculoController::Observations();
+        else
+            VeiculoController::Index();
     break;
 
     case "/veiculo/deletar":
