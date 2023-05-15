@@ -12,15 +12,57 @@ body {
     height: 100vh;
     width: 100vw;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     background-color: #9C88FF;
+
+}
+
+#backup {
+
+    height: 8%;
+    width: 90%;
+    display:  flex;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+#botoes_backup {
+
+    height: 90%;
+    width: 20%;
+    display:  flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #FFFFFF;
+    border: 5px solid #000000;
+    border-radius: 15px;
+    font-weight: bolder;
+
+}
+
+#botoes_backup button {
+
+    padding: 8px;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    cursor: pointer;
+
+}
+
+#botoes_backup button a {
+
+    text-decoration: none;
+    color: #9C88FF;
+    font-weight: bolder;
 
 }
 
 #container {
 
-    height: 90%;
+    height: 85%;
     width: 90%;
     display: flex;
     flex-direction: column;

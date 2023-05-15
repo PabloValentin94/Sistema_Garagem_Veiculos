@@ -18,6 +18,20 @@
 
     <body>
 
+        <div id="backup">
+
+            <div id="botoes_backup">
+
+                <label> Backup: </label>
+
+                <button id="btn_exportar"> <a href="/backup/exportar"> Salvar </a> </button>
+
+                <button id="btn_restaurar"> <a href="/backup/importar"> Restaurar </a> </button>
+
+            </div>
+
+        </div>
+
         <div id="container">
 
             <div class="small-line">

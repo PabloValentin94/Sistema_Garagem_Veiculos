@@ -8,11 +8,15 @@ use App\Controller\CombustivelController;
 use App\Controller\FabricanteController;
 use App\Controller\VeiculoController;
 
-// Namespaces - Cadastro de Usuários:
+// Namespace - Backup:
+
+use App\Controller\Backup_Controller;
+
+// Namespace - Cadastro de Usuários:
 
 use App\Controller\SignUpController;
 
-// Namespaces - Login de Usuários:
+// Namespace - Login de Usuários:
 
 use App\Controller\SignInController;
 
@@ -130,6 +134,16 @@ switch($url)
 
     case "/veiculo/visualizacao":
         VeiculoController::Exibition();
+    break;
+
+    // Backup:
+
+    case "/backup/exportar":
+        Backup_Controller::Export_Backup();
+    break;
+
+    case "/backup/importar":
+        Backup_Controller::Import_Backup();
     break;
 
     // Exibição padrão:
