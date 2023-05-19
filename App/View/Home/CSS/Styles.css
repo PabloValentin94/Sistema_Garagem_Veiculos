@@ -21,7 +21,7 @@ body {
 
 #backup {
 
-    height: 8%;
+    height: 10%;
     width: 90%;
     display:  flex;
     align-items: center;
@@ -32,7 +32,7 @@ body {
 #botoes_backup {
 
     height: 90%;
-    width: 20%;
+    width: 30%;
     display:  flex;
     align-items: center;
     justify-content: space-evenly;

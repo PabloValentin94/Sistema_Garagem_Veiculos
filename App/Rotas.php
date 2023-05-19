@@ -12,13 +12,13 @@ use App\Controller\VeiculoController;
 
 use App\Controller\Backup_Controller;
 
-// Namespace - Cadastro de Usuários:
+/*// Namespace - Cadastro de Usuários:
 
 use App\Controller\SignUpController;
 
 // Namespace - Login de Usuários:
 
-use App\Controller\SignInController;
+use App\Controller\SignInController;*/
 
 $url = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
