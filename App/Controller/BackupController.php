@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use \PDO;
+//use \PDO;
 
 class BackupController
 {
@@ -12,13 +12,13 @@ class BackupController
     public static function Export_Backup()
     {
 
-        exec("D:");
+        $reparticao = "C:";
 
-        if(!is_dir("D:/Backup/"))
+        exec("$reparticao");
+
+        if(!is_dir("$reparticao/Backup"))
         {
             
-            exec("cd D:/");
-
             exec("md Backup");
 
         }
@@ -46,9 +46,7 @@ class BackupController
 
         }*/
 
-        /*
-
-        Parâmetros - mysqldump:
+        /* Parâmetros - mysqldump:
 
         -h: "endereço" da conexão. Exemplo: localhost.
 
@@ -56,15 +54,38 @@ class BackupController
 
         -P: porta da conexão. Exemplo: 3307.
 
-        -p: senha. Exemplo: etecjau.
+        -p: senha. Exemplo: etecjau. */
+        
+        /*Observação: Não deve haver espaços entre o parâmetro e seu valor. Exemplo:
+        
+        Errado: -u root
 
-        */
+        Certo: -uroot*/
 
-        exec('C:\"Program Files"\MySQL\"MySQL Server 8.0"\bin\mysqldump -hlocalhost -P3307 -uroot -petecjau db_sistema_veiculos --databases > D:/Backup/Backup_Full.sql');
+        if(file_exists(BASEDIR . "App/Controller/Assets/Exportar.bat"))
+        {
 
-        exec('C:\"Program Files"\MySQL\"MySQL Server 8.0"\bin\mysqldump -hlocalhost -P3307 -uroot -petecjau db_sistema_veiculos --no-data --databases > D:/Backup/Backup_Structure.sql');
+            exec(BASEDIR . "App/Controller/Assets/Exportar.bat");
 
-        exec('C:\"Program Files"\MySQL\"MySQL Server 8.0"\bin\mysqldump -hlocalhost -P3307 -uroot -petecjau db_sistema_veiculos --no-create-info --databases > D:/Backup/Backup_Data.sql');
+        }
+
+        else if(file_exists("$reparticao/Backup/Export/Exportar.bat"))
+        {
+
+            exec("$reparticao/Backup/Export/Exportar.bat");
+
+        }
+
+        else
+        {
+
+            exec($reparticao . '/"Program Files"/MySQL/"MySQL Server 8.0"/bin/mysqldump -hlocalhost -P3306 -uroot -petecjau db_sistema_veiculos --databases > ' . $reparticao . '/Backup/Backup_Full.sql');
+
+            exec($reparticao . '/"Program Files"/MySQL/"MySQL Server 8.0"/bin/mysqldump -hlocalhost -P3306 -uroot -petecjau db_sistema_veiculos --no-data --databases > ' . $reparticao . '/Backup/Backup_Structure.sql');
+
+            exec($reparticao . '/"Program Files"/MySQL/"MySQL Server 8.0"/bin/mysqldump -hlocalhost -P3306 -uroot -petecjau db_sistema_veiculos --no-create-info --databases > ' . $reparticao . '/Backup/Backup_Data.sql');
+
+        }
 
         header("Location: /");
 
@@ -73,18 +94,29 @@ class BackupController
     public static function Import_Backup()
     {
 
-        exec("D:");
+        $reparticao = "C:";
 
-        if(is_dir("D:/Backup"))
+        exec("$reparticao");
+
+        if(is_dir("$reparticao/Backup"))
         {
 
-            if(file_exists("D:/Backup/Backup_Full.sql"))
+            if(file_exists("$reparticao/Backup/Backup_Full.sql"))
             {
 
-                if(is_dir("D:/Backup/Import"))
+                if(file_exists(BASEDIR . "App/Controller/Assets/Importar.bat"))
                 {
 
-                    if(file_exists("D:/Backup/Import/Importar.bat"))
+                    exec(BASEDIR . "App/Controller/Assets/Importar.bat");
+
+                    header("Location: /");
+
+                }
+
+                elseif(is_dir("$reparticao/Backup/Import"))
+                {
+
+                    if(file_exists("$reparticao/Backup/Import/Importar.bat"))
                     {
 
                         /*$arquivo = file_get_contents("D:/Backup/Backup_Full.sql");
@@ -107,18 +139,27 @@ class BackupController
 
                         $stmt->execute();*/
 
-                        //$saida = null;
+                        /*$saida = null;
                         $codigo_saida = null;
 
-                        //exec('mysql -hlocalhost -P3307 -uroot -petecjau < "D:\Backup\Backup_Full.sql" ', $saida, $codigo_saida);
+                        exec('mysql -hlocalhost -P3307 -uroot -petecjau < "D:\Backup\Backup_Full.sql" ', $saida, $codigo_saida);
 
-                        exec('D:/Backup/Import/Importar.bat');
+                        var_dump($saida, $codigo_saida);*/
 
-                        //var_dump($saida, $codigo_saida);
+                        exec("$reparticao/Backup/Import/Importar.bat");
 
                         header("Location: /");
 
                     }
+
+                }
+
+                else
+                {
+
+                    exec('cd ' . $reparticao . '/"Program Files"/MySQL/"MySQL Server 8.0"/bin');
+                    
+                    exec("mysql -hlocalhost -P3306 -uroot -petecjau < C:\Backup\Backup_Full.sql");
 
                 }
     

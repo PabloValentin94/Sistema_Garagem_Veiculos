@@ -24,9 +24,9 @@
 
                 <label> Backup: </label>
 
-                <button id="btn_exportar"> <a href="/backup/exportar"> Salvar </a> </button>
+                <button id="btn_exportar"> <a href="/backup/exportar"> Exportar </a> </button>
 
-                <button id="btn_restaurar"> <a href="/backup/importar"> Restaurar </a> </button>
+                <button id="btn_restaurar"> <a href="/backup/importar"> Importar </a> </button>
 
             </div>
 

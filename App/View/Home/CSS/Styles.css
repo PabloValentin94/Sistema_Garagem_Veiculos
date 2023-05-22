@@ -47,6 +47,7 @@ body {
 
     padding: 8px;
     border: 2px solid #000000;
+    background-color: transparent;
     border-radius: 20px;
     cursor: pointer;
 
@@ -55,7 +56,8 @@ body {
 #botoes_backup button a {
 
     text-decoration: none;
-    color: #9C88FF;
+    color: #FF0000;
+    background-color: transparent;
     font-weight: bolder;
 
 }
