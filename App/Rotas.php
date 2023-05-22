@@ -10,7 +10,7 @@ use App\Controller\VeiculoController;
 
 // Namespace - Backup:
 
-use App\Controller\Backup_Controller;
+use App\Controller\BackupController;
 
 /*// Namespace - Cadastro de Usuários:
 
@@ -139,11 +139,11 @@ switch($url)
     // Backup:
 
     case "/backup/exportar":
-        Backup_Controller::Export_Backup();
+        BackupController::Export_Backup();
     break;
 
     case "/backup/importar":
-        Backup_Controller::Import_Backup();
+        BackupController::Import_Backup();
     break;
 
     // Exibição padrão:
