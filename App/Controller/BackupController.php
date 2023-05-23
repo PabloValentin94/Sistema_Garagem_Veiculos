@@ -56,38 +56,47 @@ class BackupController
 
         -p: senha. Exemplo: etecjau. */
         
-        /*Observação: Não deve haver espaços entre o parâmetro e seu valor. Exemplo:
+        /* Observação: Não deve haver espaços entre o parâmetro e seu valor. Exemplo:
         
         Errado: -u root
 
-        Certo: -uroot*/
+        Certo: -uroot */
 
-        if(file_exists(BASEDIR . "App/Controller/Assets/Exportar.bat"))
-        {
-
-            exec(BASEDIR . "App/Controller/Assets/Exportar.bat");
-
-        }
-
-        else if(file_exists("$reparticao/Backup/Export/Exportar.bat"))
+        if(file_exists("$reparticao/Backup/Export/Exportar.bat"))
         {
 
             exec("$reparticao/Backup/Export/Exportar.bat");
+
+            header("Location: /");
 
         }
 
         else
         {
 
-            exec($reparticao . '/"Program Files"/MySQL/"MySQL Server 8.0"/bin/mysqldump -hlocalhost -P3306 -uroot -petecjau db_sistema_veiculos --databases > ' . $reparticao . '/Backup/Backup_Full.sql');
+            if(file_exists(BASEDIR . "App/Controller/Assets/Exportar.bat"))
+            {
 
-            exec($reparticao . '/"Program Files"/MySQL/"MySQL Server 8.0"/bin/mysqldump -hlocalhost -P3306 -uroot -petecjau db_sistema_veiculos --no-data --databases > ' . $reparticao . '/Backup/Backup_Structure.sql');
+                exec(BASEDIR . "App/Controller/Assets/Exportar.bat");
 
-            exec($reparticao . '/"Program Files"/MySQL/"MySQL Server 8.0"/bin/mysqldump -hlocalhost -P3306 -uroot -petecjau db_sistema_veiculos --no-create-info --databases > ' . $reparticao . '/Backup/Backup_Data.sql');
+                header("Location: /");
+
+            }
+
+            else
+            {
+
+                exec($reparticao . '/"Program Files"/MySQL/"MySQL Server 8.0"/bin/mysqldump -hlocalhost -P3306 -uroot -petecjau db_sistema_veiculos --databases > ' . $reparticao . '/Backup/Backup_Full.sql');
+
+                exec($reparticao . '/"Program Files"/MySQL/"MySQL Server 8.0"/bin/mysqldump -hlocalhost -P3306 -uroot -petecjau db_sistema_veiculos --no-data --databases > ' . $reparticao . '/Backup/Backup_Structure.sql');
+
+                exec($reparticao . '/"Program Files"/MySQL/"MySQL Server 8.0"/bin/mysqldump -hlocalhost -P3306 -uroot -petecjau db_sistema_veiculos --no-create-info --databases > ' . $reparticao . '/Backup/Backup_Data.sql');
+
+                header("Location: /");
+
+            }
 
         }
-
-        header("Location: /");
 
     }
 
@@ -104,16 +113,7 @@ class BackupController
             if(file_exists("$reparticao/Backup/Backup_Full.sql"))
             {
 
-                if(file_exists(BASEDIR . "App/Controller/Assets/Importar.bat"))
-                {
-
-                    exec(BASEDIR . "App/Controller/Assets/Importar.bat");
-
-                    header("Location: /");
-
-                }
-
-                elseif(is_dir("$reparticao/Backup/Import"))
+                if(is_dir("$reparticao/Backup/Import"))
                 {
 
                     if(file_exists("$reparticao/Backup/Import/Importar.bat"))
@@ -152,18 +152,55 @@ class BackupController
 
                     }
 
+                    else
+                    {
+
+                        exit("Arquivo de importação de backup não encontrado.");
+
+                    }
+
                 }
 
                 else
                 {
 
-                    exec('cd ' . $reparticao . '/"Program Files"/MySQL/"MySQL Server 8.0"/bin');
+                    if(file_exists(BASEDIR . "App/Controller/Assets/Importar.bat"))
+                    {
+
+                        exec(BASEDIR . "App/Controller/Assets/Importar.bat");
+
+                        header("Location: /");
+
+                    }
+
+                    else
+                    {
+
+                        exec('cd ' . $reparticao . '/"Program Files"/MySQL/"MySQL Server 8.0"/bin');
                     
-                    exec("mysql -hlocalhost -P3306 -uroot -petecjau < C:\Backup\Backup_Full.sql");
+                        exec("mysql -hlocalhost -P3306 -uroot -petecjau < C:\Backup\Backup_Full.sql");
+
+                        header("Location: /");
+
+                    }
 
                 }
     
             }
+
+            else
+            {
+
+                exit("Arquivo de backup não encontrado!");
+
+            }
+
+        }
+
+        else
+        {
+
+            exit("Pasta de backup não encontrada!");
 
         }
 
