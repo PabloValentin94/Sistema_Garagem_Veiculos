@@ -12,7 +12,7 @@ class BackupController
     public static function Export_Backup()
     {
 
-        $reparticao = "C:";
+        $reparticao = "D:";
 
         exec("$reparticao");
 
@@ -23,9 +23,9 @@ class BackupController
 
         }
 
-        // O MySQL sobrescreve o conteúdo. Não é necessário recriar os arquivos de backup.
+        // Excluindo os arquivos, se existirem, para não dar um erro de sobrescrição.
 
-        /*if(file_exists("D:/Backup/Backup_Full.sql"))
+        if(file_exists("D:/Backup/Backup_Full.sql"))
         {
 
             exec("del D:/Backup/Backup_Full.sql");
@@ -44,7 +44,7 @@ class BackupController
 
             exec("del D:/Backup/Backup_Data.sql");
 
-        }*/
+        }
 
         /* Parâmetros - mysqldump:
 
@@ -86,11 +86,11 @@ class BackupController
             else
             {
 
-                exec($reparticao . '/"Program Files"/MySQL/"MySQL Server 8.0"/bin/mysqldump -hlocalhost -P3306 -uroot -petecjau db_sistema_veiculos --databases > ' . $reparticao . '/Backup/Backup_Full.sql');
+                exec('C:/"Program Files"/MySQL/"MySQL Server 8.0"/bin/mysqldump -hlocalhost -P3307 -uroot -petecjau db_sistema_veiculos --databases > ' . $reparticao . '/Backup/Backup_Full.sql');
 
-                exec($reparticao . '/"Program Files"/MySQL/"MySQL Server 8.0"/bin/mysqldump -hlocalhost -P3306 -uroot -petecjau db_sistema_veiculos --no-data --databases > ' . $reparticao . '/Backup/Backup_Structure.sql');
+                exec('C:/"Program Files"/MySQL/"MySQL Server 8.0"/bin/mysqldump -hlocalhost -P3307 -uroot -petecjau db_sistema_veiculos --no-data --databases > ' . $reparticao . '/Backup/Backup_Structure.sql');
 
-                exec($reparticao . '/"Program Files"/MySQL/"MySQL Server 8.0"/bin/mysqldump -hlocalhost -P3306 -uroot -petecjau db_sistema_veiculos --no-create-info --databases > ' . $reparticao . '/Backup/Backup_Data.sql');
+                exec('C:/"Program Files"/MySQL/"MySQL Server 8.0"/bin/mysqldump -hlocalhost -P3307 -uroot -petecjau db_sistema_veiculos --no-create-info --databases > ' . $reparticao . '/Backup/Backup_Data.sql');
 
                 header("Location: /");
 
@@ -103,7 +103,7 @@ class BackupController
     public static function Import_Backup()
     {
 
-        $reparticao = "C:";
+        $reparticao = "D:";
 
         exec("$reparticao");
 
@@ -176,9 +176,9 @@ class BackupController
                     else
                     {
 
-                        exec('cd ' . $reparticao . '/"Program Files"/MySQL/"MySQL Server 8.0"/bin');
+                        exec('cd C:/"Program Files"/MySQL/"MySQL Server 8.0"/bin');
                     
-                        exec("mysql -hlocalhost -P3306 -uroot -petecjau < C:\Backup\Backup_Full.sql");
+                        exec("mysql -hlocalhost -P3307 -uroot -petecjau < C:\Backup\Backup_Full.sql");
 
                         header("Location: /");
 
